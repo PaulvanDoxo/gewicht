@@ -58,6 +58,16 @@ button.del{background:var(--rd);box-shadow:none}
 .item{padding:12px 6px;border-radius:12px;border-bottom:1px solid var(--bd)}
 .item:active{background:color-mix(in srgb,var(--ac) 10%,transparent)}
 .item b{font-size:18px}
+.bmi-top{display:flex;align-items:center;gap:14px;margin:14px 0 10px}
+.bmi-val{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1}
+.bmi-top small{display:block;color:var(--mu)}
+.bmi-bar{position:relative;height:10px;border-radius:999px;background:linear-gradient(90deg,#3b82f6 0%,#3b82f6 14%,#14b8a6 14%,#14b8a6 40%,#f59e0b 40%,#f59e0b 60%,#ef4444 60%,#ef4444 100%)}
+.bmi-bar i{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;border-radius:3px;background:var(--tx);box-shadow:0 0 0 2px var(--card)}
+.bmi-scale{display:flex;justify-content:space-between;font-size:11px;color:var(--mu);margin:4px 0 8px}
+.bmi-note{color:var(--mu);font-size:14px;margin:8px 0 0}
+#bmi p{margin:8px 0}
+#bmi details{margin-top:10px;font-size:14px;color:var(--mu)}
+#bmi summary{cursor:pointer;color:var(--ac);font-weight:600}
 label.btn{display:inline-block;font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-radius:12px;padding:12px 18px;box-shadow:0 6px 16px color-mix(in srgb,var(--ac) 35%,transparent)}
 .item span{background:color-mix(in srgb,var(--ac) 14%,transparent);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600}
 </style>
@@ -92,6 +102,15 @@ label.btn{display:inline-block;font:inherit;font-weight:600;cursor:pointer;backg
 <input id="goal" type="text" inputmode="decimal" placeholder="Doel in kg">
 <button id="goalBtn">Instellen</button>
 </div>
+</div>
+
+<div class="card">
+<h2>BMI</h2>
+<div class="row">
+<input id="height" type="text" inputmode="numeric" placeholder="Lengte in cm">
+<button id="heightBtn">Instellen</button>
+</div>
+<div id="bmi"></div>
 </div>
 
 <div class="card">
@@ -154,6 +173,38 @@ function render(){
     el.onclick=function(){startEdit(el.getAttribute('data-id'));};
   });
   drawChart(e);
+  drawBmi(e);
+}
+
+function bmiInfo(b){
+  if(b<18.5)return {n:'Ondergewicht',c:'#3b82f6',t:'Je gewicht is laag ten opzichte van je lengte. Dat hoeft geen probleem te zijn, maar bij ongewild gewichtsverlies, weinig energie of klachten is overleg met je huisarts verstandig.'};
+  if(b<25)return {n:'Gezond gewicht',c:'#14b8a6',t:'Je gewicht past bij je lengte en de kans op gezondheidsproblemen door gewicht is over het algemeen het kleinst.'};
+  if(b<30)return {n:'Overgewicht',c:'#f59e0b',t:'Je gewicht is wat hoger dan wat bij je lengte past. Het risico op onder meer hart- en vaatziekten en diabetes neemt dan wat toe, zeker als er veel buikvet is.'};
+  return {n:'Obesitas',c:'#ef4444',t:'Je gewicht is duidelijk hoger dan wat bij je lengte past. Het gezondheidsrisico is verhoogd. Een gesprek met je huisarts over wat bij jou past is verstandig.'};
+}
+function drawBmi(e){
+  var box=$('bmi');
+  if(!data.height){box.innerHTML='<p class="bmi-note">Vul je lengte in om je BMI te zien.</p>';return;}
+  if(!e.length){box.innerHTML='<p class="bmi-note">Voeg een meting toe om je BMI te berekenen.</p>';return;}
+  var kg=e[e.length-1].kg,m=data.height/100,b=kg/(m*m),i=bmiInfo(b);
+  var lo=18.5*m*m,hi=24.9*m*m;
+  var pos=Math.max(0,Math.min(100,(b-15)/(40-15)*100));
+  var bar='<div class="bmi-bar"><i style="left:'+pos.toFixed(1)+'%"></i></div>'+
+    '<div class="bmi-scale"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>';
+  var tip='';
+  if(b<18.5||b>=25){
+    var diff=b<18.5?lo-kg:kg-hi;
+    tip='<p class="bmi-note">Bij jouw lengte ligt een BMI tussen 18,5 en 25 bij ongeveer <b>'+fmt(lo)+' tot '+fmt(hi)+' kg</b>. Je zit daar ongeveer '+fmt(diff)+' kg '+(b<18.5?'onder':'boven')+'.</p>';
+  }else{
+    tip='<p class="bmi-note">Bij jouw lengte ligt een BMI tussen 18,5 en 25 bij ongeveer <b>'+fmt(lo)+' tot '+fmt(hi)+' kg</b>.</p>';
+  }
+  box.innerHTML='<div class="bmi-top"><div class="bmi-val" style="color:'+i.c+'">'+b.toFixed(1).replace('.',',')+'</div>'+
+    '<div><b style="color:'+i.c+'">'+i.n+'</b><small>op basis van '+fmt(kg)+' kg en '+data.height+' cm</small></div></div>'+
+    bar+'<p>'+i.t+'</p>'+tip+
+    '<details><summary>Wat betekent dit getal?</summary>'+
+    '<p>De BMI (Body Mass Index) is je gewicht in kilo\'s gedeeld door je lengte in meters, tweemaal vermenigvuldigd. Voor jou: '+fmt(kg)+' ÷ ('+String(m).replace('.',',')+' × '+String(m).replace('.',',')+') = '+b.toFixed(1).replace('.',',')+'.</p>'+
+    '<p>Grenzen voor volwassenen (WHO): onder 18,5 ondergewicht, 18,5 tot 25 gezond gewicht, 25 tot 30 overgewicht, vanaf 30 obesitas.</p>'+
+    '<p><b>Beperkingen:</b> de BMI maakt geen onderscheid tussen spieren, vet en bot. Een gespierd persoon kan een hoge BMI hebben zonder te veel vet. Ook zegt hij niets over waar het vet zit (buikvet is risicovoller). Voor kinderen, tieners, zwangere vrouwen en ouderen gelden andere grenzen. Zie het als een grove indicatie, geen diagnose.</p></details>';
 }
 
 function drawChart(e){
@@ -219,6 +270,16 @@ $('goalBtn').onclick=function(){
   var v=$('goal').value.trim();
   if(v===''){data.goal=null;}
   else{var n=num(v);if(n===null){alert('Vul een geldig doelgewicht in.');return;}data.goal=n;}
+  save();render();
+};
+$('heightBtn').onclick=function(){
+  var v=$('height').value.trim();
+  if(v===''){data.height=null;}
+  else{
+    var n=parseFloat(v.replace(',','.'));
+    if(!isFinite(n)||n<100||n>250){alert('Vul je lengte in centimeters in, tussen 100 en 250.');return;}
+    data.height=Math.round(n);
+  }
   save();render();
 };
 function csv(){return 'datum;gewicht_kg\n'+sorted().map(function(x){return x.date+';'+String(x.kg).replace('.',',');}).join('\n')+'\n';}
@@ -323,6 +384,7 @@ $('pasteBtn').onclick=function(){$('pasteBox').hidden=!$('pasteBox').hidden;};
 $('pasteGo').onclick=function(){
   if(importText($('pasteText').value)){$('pasteText').value='';$('pasteBox').hidden=true;}
 };
+if(data.height)$('height').value=String(data.height);
 if(data.goal)$('goal').value=String(data.goal).replace('.',',');
 resetForm();render();
 </script>
