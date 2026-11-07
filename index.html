@@ -61,7 +61,7 @@ button.del{background:var(--rd);box-shadow:none}
 .bmi-top{display:flex;align-items:center;gap:14px;margin:14px 0 10px}
 .bmi-val{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1}
 .bmi-top small{display:block;color:var(--mu)}
-.bmi-bar{position:relative;height:10px;border-radius:999px;background:linear-gradient(90deg,#3b82f6 0%,#3b82f6 14%,#14b8a6 14%,#14b8a6 40%,#f59e0b 40%,#f59e0b 60%,#ef4444 60%,#ef4444 100%)}
+.bmi-bar{position:relative;height:10px;border-radius:999px;background:linear-gradient(90deg,#007389 0%,#007389 14%,#00A59A 14%,#00A59A 40%,#FFB50C 40%,#FFB50C 60%,#FF6A0C 60%,#FF6A0C 100%)}
 .bmi-bar i{position:absolute;top:-4px;width:6px;height:18px;margin-left:-3px;border-radius:3px;background:var(--tx);box-shadow:0 0 0 2px var(--card)}
 .bmi-scale{display:flex;justify-content:space-between;font-size:11px;color:var(--mu);margin:4px 0 8px}
 .bmi-note{color:var(--mu);font-size:14px;margin:8px 0 0}
@@ -123,14 +123,78 @@ details[open].card>summary::after{transform:rotate(-135deg);margin-top:3px}
 .sec .stats>div:nth-child(3){background:color-mix(in srgb,#ec4899 14%,transparent)}
 .sec .stats>div:nth-child(3) b{color:#ec4899}
 .wz{margin-top:0}
+
+/* palet: #007389 #00A59A #FFD136 #FFB50C #FF6A0C */
+:root{--bg:#f1f7f7;--card:#fff;--tx:#12282d;--mu:#5f7479;--bd:#d9e8e8;--sh:0 8px 24px rgba(0,115,137,.14);--ac:#007389;--ac2:#00A59A;
+--m1:#007389;--m2:#00A59A;--mt:#007389;--onm:#fff;
+--w1:#FFB50C;--w2:#FFB50C;--wt:#8a5c00;--onw:#2b1700;
+--b1:#FF6A0C;--b2:#FFB50C;--bt:#c24a00;--onb:#2b1200;
+--z-low:#007389;--z-ok:#00A59A;--z-mid:#FFB50C;--z-high:#FF6A0C;
+--zt-low:#007389;--zt-ok:#007a72;--zt-mid:#9a6a00;--zt-high:#c24a00}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1a1d;--card:#122a2f;--tx:#e9f5f5;--mu:#93b0b4;--bd:#1f3b41;--sh:0 8px 24px rgba(0,0,0,.45);--ac:#2fb0c9;--ac2:#00A59A;
+--m1:#2fb0c9;--m2:#00A59A;--mt:#5cc8dc;--onm:#00212a;
+--w1:#FFB50C;--w2:#FFB50C;--wt:#FFB50C;--onw:#2b1700;
+--b1:#ff8a3d;--b2:#FFB50C;--bt:#ffa15e;--onb:#2b1200;
+--z-low:#2fb0c9;--z-ok:#19c9bd;--z-mid:#FFD136;--z-high:#ff8a3d;
+--zt-low:#5cc8dc;--zt-ok:#3fe0d4;--zt-mid:#FFD136;--zt-high:#ff8a3d}}
+:root[data-theme="dark"]{--bg:#0a1a1d;--card:#122a2f;--tx:#e9f5f5;--mu:#93b0b4;--bd:#1f3b41;--sh:0 8px 24px rgba(0,0,0,.45);--ac:#2fb0c9;--ac2:#00A59A;
+--m1:#2fb0c9;--m2:#00A59A;--mt:#5cc8dc;--onm:#00212a;
+--w1:#FFB50C;--w2:#FFB50C;--wt:#FFB50C;--onw:#2b1700;
+--b1:#ff8a3d;--b2:#FFB50C;--bt:#ffa15e;--onb:#2b1200;
+--z-low:#2fb0c9;--z-ok:#19c9bd;--z-mid:#FFD136;--z-high:#ff8a3d;
+--zt-low:#5cc8dc;--zt-ok:#3fe0d4;--zt-mid:#FFD136;--zt-high:#ff8a3d}
+.hero{background:linear-gradient(160deg,#007389 55%,#00A59A 100%);color:#fff}
+.s-meten{--ac:var(--m1);--ac2:var(--m2);--act:var(--mt);--onc:var(--onm)}
+.s-weten{--ac:var(--w1);--ac2:var(--w2);--act:var(--wt);--onc:var(--onw)}
+.s-bewaren{--ac:var(--b1);--ac2:var(--b2);--act:var(--bt);--onc:var(--onb)}
+.t-meten{--c:var(--m1);--onc:var(--onm)}.t-weten{--c:var(--w1);--onc:var(--onw)}.t-bewaren{--c:var(--b1);--onc:var(--onb)}
+.sh h2{color:var(--act)}
+#bmi summary,.howto summary{color:var(--act)}
+button,label.btn{color:var(--onc,#fff)}
+button.sec,button.chip{color:var(--tx)}
+button.chip.on{color:var(--onc,#fff)}
+button.del{color:#fff}
+.sec .stats>div:nth-child(2){background:color-mix(in srgb,var(--z-mid) 18%,transparent)}
+.sec .stats>div:nth-child(2) b{color:var(--zt-mid)}
+.sec .stats>div:nth-child(3){background:color-mix(in srgb,var(--z-high) 16%,transparent)}
+.sec .stats>div:nth-child(3) b{color:var(--zt-high)}
+.sec .stats>div:nth-child(1) b{color:var(--act)}
+
+.hero{position:relative;overflow:hidden;background:#007389;color:#fff;border-radius:28px;padding:22px 20px 18px;margin-bottom:12px;box-shadow:0 14px 32px rgba(0,115,137,.35)}
+.hero .hc{position:absolute;border-radius:50%;pointer-events:none}
+.hero .c1{width:150px;height:150px;right:-44px;top:-48px;background:#FFD136}
+.hero .c2{width:82px;height:82px;right:42px;top:52px;background:#FF6A0C}
+.hero .c3{width:64px;height:64px;right:-14px;top:92px;background:#00A59A;box-shadow:0 0 0 6px #007389}
+.hero .c2{box-shadow:0 0 0 6px #007389}
+.hero-top{position:relative;max-width:68%}
+.hero .kick{display:inline-block;white-space:nowrap;background:#FFD136;color:#00262d;font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px;margin-bottom:12px}
+.hero h1{font-size:40px;line-height:1.02;font-weight:800;letter-spacing:-.03em;margin:0;color:#fff}
+.hero .hl{box-shadow:inset 0 -.3em 0 #FF6A0C}
+.hero p.lead{font-size:17px;line-height:1.3;margin:12px 0 0;opacity:1;color:#fff;font-weight:500}
+.hero .herod{position:relative;margin-top:22px}
+.hero .herod summary{display:inline-block;background:rgba(255,255,255,.16);padding:8px 12px;border-radius:999px;font-size:13px;font-weight:600;opacity:1}
+.hero p.sub{font-size:13px;line-height:1.4;margin:10px 2px 0;opacity:1;color:#fff}
+.sec .stats>div:nth-child(1){background:color-mix(in srgb,#007389 14%,transparent)}
+.sec .stats>div:nth-child(1) b{color:var(--mt)}
+.sec .stats>div:nth-child(2){background:color-mix(in srgb,#00A59A 16%,transparent)}
+.sec .stats>div:nth-child(2) b{color:var(--zt-ok)}
+.sec .stats>div:nth-child(3){background:color-mix(in srgb,#FF6A0C 16%,transparent)}
+.sec .stats>div:nth-child(3) b{color:var(--zt-high)}
 </style>
 </head>
 <body>
 <main>
-<div class="hero"><h1>Mijn gewicht</h1><p>Volg je voortgang en haal je doel 🎯</p>
+<div class="hero">
+<span class="hc c1"></span><span class="hc c2"></span><span class="hc c3"></span>
+<div class="hero-top">
+<div class="kick">Gewicht · Middelomtrek</div>
+<h1>Mijn <span class="hl">gewicht</span></h1>
+<p class="lead">Volg je voortgang en haal je doel 🎯</p>
+</div>
 <details class="herod"><summary>🔒 Privé en niet in de cloud · normen van het Voedingscentrum</summary>
 <p class="sub">Je data staat niet in de cloud, maar privé op je toestel en op de plek die je zelf kiest voor je export. Exporteer daarom regelmatig om je data veilig te houden.</p>
-<p class="sub">Normen en uitleg sluiten zo veel mogelijk aan op de informatie van het Voedingscentrum.</p></details></div>
+<p class="sub">Normen en uitleg sluiten zo veel mogelijk aan op de informatie van het Voedingscentrum.</p></details>
+</div>
 
 <nav class="tabs" id="tabs"><a href="#meten" class="t-meten">1 · Meten</a><a href="#weten" class="t-weten">2 · Weten</a><a href="#bewaren" class="t-bewaren">3 · Bewaren</a></nav>
 
@@ -268,6 +332,7 @@ function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()
 function nice(d){return new Date(d+'T12:00:00').toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});}
 function sorted(){return data.entries.slice().sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0;});}
 
+function tcol(c){return String(c).replace('--z-','--zt-');}
 function sum(id,html){var el=$(id);if(el)el.innerHTML=html;}
 var ZN={gezond:'gezond',verhoogd:'verhoogd',hoog:'te hoog'};
 function render(){
@@ -292,7 +357,7 @@ function render(){
   else l.innerHTML=e.slice().reverse().map(function(x){
     var wz=x.waist!=null?waistZone(x.waist):null,an=ageNote(age());
     var wtxt=x.waist!=null?' · middelomtrek '+(wz&&!an?'<i class="zdot" style="background:'+wz.c+'"></i>':'')+fmt(x.waist)+' cm':'';
-    return '<div class="item" data-id="'+x.id+'"><div><b>'+fmt(x.kg)+' kg</b><small>'+nice(x.date)+wtxt+'</small></div><span style="color:var(--ac)">Wijzig</span></div>';
+    return '<div class="item" data-id="'+x.id+'"><div><b>'+fmt(x.kg)+' kg</b><small>'+nice(x.date)+wtxt+'</small></div><span style="color:var(--act)">Wijzig</span></div>';
   }).join('');
   Array.prototype.forEach.call(l.querySelectorAll('.item'),function(el){
     el.onclick=function(){startEdit(el.getAttribute('data-id'));};
@@ -328,17 +393,17 @@ function ageNote(a){
 }
 function bmiInfo(b){
   var risk='Een gezonder gewicht verkleint de kans op onder meer diabetes type 2, hoge bloeddruk, hart- en vaatziekten, galstenen, rug- en gewrichtsklachten en bepaalde soorten kanker.';
-  if(b<18.5)return {n:'Ondergewicht',c:'#3b82f6',t:'Je BMI is lager dan 18,5. Heb je klachten, of is je gewicht ongewild gedaald, overleg dan met je huisarts of een diëtist.'};
-  if(b<25)return {n:'Gezond gewicht',c:'#14b8a6',t:'Je BMI valt in het gebied van 18,5 tot 25. Dat is een gezond gewicht voor je lengte.'};
-  if(b<30)return {n:'Overgewicht',c:'#f59e0b',t:risk};
-  return {n:'Ernstig overgewicht',c:'#ef4444',t:risk+' Overleg met je huisarts of een diëtist wat bij jou past.'};
+  if(b<18.5)return {n:'Ondergewicht',c:'var(--z-low)',t:'Je BMI is lager dan 18,5. Heb je klachten, of is je gewicht ongewild gedaald, overleg dan met je huisarts of een diëtist.'};
+  if(b<25)return {n:'Gezond gewicht',c:'var(--z-ok)',t:'Je BMI valt in het gebied van 18,5 tot 25. Dat is een gezond gewicht voor je lengte.'};
+  if(b<30)return {n:'Overgewicht',c:'var(--z-mid)',t:risk};
+  return {n:'Ernstig overgewicht',c:'var(--z-high)',t:risk+' Overleg met je huisarts of een diëtist wat bij jou past.'};
 }
 function waistZone(w){
   if(!data.sex)return null;
   var t=origin()[data.sex],lo=t[0],hi=t[1];
-  if(hi!==null&&w>=hi)return {k:'hoog',n:'Te hoog, verhoogd risico',c:'#ef4444',t:'Val onder begeleiding verantwoord af. Vraag een arts of diëtist om advies.'};
-  if(w>=lo)return {k:'verhoogd',n:'Verhoogd, risicogebied',c:'#f59e0b',t:'Let op en check je BMI.'+(hi===null?' Voor jouw achtergrond is de grens voor "te hoog" niet bekend.':'')};
-  return {k:'gezond',n:'Gezond, geen verhoogd risico',c:'#14b8a6',t:'Houd je middelomtrek zo.'};
+  if(hi!==null&&w>=hi)return {k:'hoog',n:'Te hoog, verhoogd risico',c:'var(--z-high)',t:'Val onder begeleiding verantwoord af. Vraag een arts of diëtist om advies.'};
+  if(w>=lo)return {k:'verhoogd',n:'Verhoogd, risicogebied',c:'var(--z-mid)',t:'Let op en check je BMI.'+(hi===null?' Voor jouw achtergrond is de grens voor "te hoog" niet bekend.':'')};
+  return {k:'gezond',n:'Gezond, geen verhoogd risico',c:'var(--z-ok)',t:'Houd je middelomtrek zo.'};
 }
 function drawBmi(e){
   var box=$('bmi');
@@ -347,8 +412,8 @@ function drawBmi(e){
   var kg=e[e.length-1].kg,m=data.height/100,b=kg/(m*m),a=age(),an=ageNote(a);
   var lo=18.5*m*m,hi=25*m*m,bs=b.toFixed(1).replace('.',',');
   sum('bmiSum',an?bs:'<i class="zdot" style="background:'+bmiInfo(b).c+'"></i>'+bs+' · '+bmiInfo(b).n.toLowerCase());
-  var head='<div class="bmi-top"><div class="bmi-val"'+(an?'':' style="color:'+bmiInfo(b).c+'"')+'>'+bs+'</div>'+
-    '<div>'+(an?'<b>BMI</b>':'<b style="color:'+bmiInfo(b).c+'">'+bmiInfo(b).n+'</b>')+'<small>op basis van '+fmt(kg)+' kg en '+data.height+' cm</small></div></div>';
+  var head='<div class="bmi-top"><div class="bmi-val"'+(an?'':' style="color:'+tcol(bmiInfo(b).c)+'"')+'>'+bs+'</div>'+
+    '<div>'+(an?'<b>BMI</b>':'<b style="color:'+tcol(bmiInfo(b).c)+'">'+bmiInfo(b).n+'</b>')+'<small>op basis van '+fmt(kg)+' kg en '+data.height+' cm</small></div></div>';
   var body='';
   if(an){body='<p>'+an+'</p>';}
   else{
@@ -379,7 +444,7 @@ function drawWaist(e){
   if(an)html+='<p class="bmi-note">'+an+'</p>';
   else if(!data.sex)html+='<p class="bmi-note">Kies man of vrouw en bewaar je gegevens om je middelomtrek te beoordelen.</p>';
   else{
-    html+='<p style="margin:6px 0 0"><b style="color:'+z.c+'">'+z.n+'</b><br>'+z.t+'</p>';
+    html+='<p style="margin:6px 0 0"><b style="color:'+tcol(z.c)+'">'+z.n+'</b><br>'+z.t+'</p>';
     if(a===null)html+='<p class="bmi-note">Vul je geboortedatum in. Deze grenzen gelden voor volwassenen van 19 tot 69 jaar.</p>';
     var t=origin()[data.sex];
     html+='<p class="bmi-note">Grenzen voor jouw gegevens: verhoogd vanaf '+fmt(t[0])+' cm'+(t[1]!==null?', te hoog vanaf '+fmt(t[1])+' cm':', "te hoog" is onbekend voor jouw achtergrond')+'.</p>';
@@ -405,18 +470,18 @@ function drawChart(all){
     if(!data.height){c.innerHTML='<div class="empty">Vul je lengte in (bij Meten) om het verloop van je BMI te zien</div>';return;}
     var mm=data.height/100;
     e=all.map(function(x){return {date:x.date,kg:x.kg/(mm*mm)};});
-    lines=[{v:18.5,l:'18,5',c:'#14b8a6'},{v:25,l:'25',c:'#f59e0b'},{v:30,l:'30',c:'#ef4444'}];
+    lines=[{v:18.5,l:'18,5',c:'var(--z-ok)'},{v:25,l:'25',c:'var(--z-mid)'},{v:30,l:'30',c:'var(--z-high)'}];
   }else if(F==='waist'){
     label='Middelomtrek';
     e=all.filter(function(x){return x.waist!=null;}).map(function(x){return {date:x.date,kg:x.waist};});
     if(data.sex&&!ageNote(age())){
       var t=origin()[data.sex];
-      lines.push({v:t[0],l:'Verhoogd '+fmt(t[0]),c:'#f59e0b'});
-      if(t[1]!==null)lines.push({v:t[1],l:'Te hoog '+fmt(t[1]),c:'#ef4444'});
+      lines.push({v:t[0],l:'Verhoogd '+fmt(t[0]),c:'var(--z-mid)'});
+      if(t[1]!==null)lines.push({v:t[1],l:'Te hoog '+fmt(t[1]),c:'var(--z-high)'});
     }
   }else{
     e=all.map(function(x){return {date:x.date,kg:x.kg};});
-    if(data.goal)lines.push({v:data.goal,l:'Doel '+fmt(data.goal),c:'var(--rd)'});
+    if(data.goal)lines.push({v:data.goal,l:'Doel '+fmt(data.goal),c:'var(--z-high)'});
   }
   if(e.length<2){c.innerHTML='<div class="empty">'+(F==='waist'?'Voer minstens twee metingen met middelomtrek in voor een grafiek':'Voeg minstens twee metingen toe voor een grafiek')+'</div>';return;}
   var W=340,H=210,pl=40,pr=12,pt=12,pb=28;
@@ -436,12 +501,12 @@ function drawChart(all){
   }
   var pts=e.map(function(x){return X(x.date).toFixed(1)+','+Y(x.kg).toFixed(1);}).join(' ');
   var dots=e.map(function(x){return '<circle cx="'+X(x.date).toFixed(1)+'" cy="'+Y(x.kg).toFixed(1)+'" r="4.5" fill="var(--card)" stroke="var(--ac)" stroke-width="2.5"/>';}).join('');
-  var ref=lines.map(function(l){var ly=Y(l.v);return '<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+ly+'" y2="'+ly+'" stroke="'+l.c+'" stroke-dasharray="5 4"/><text x="'+(W-pr)+'" y="'+(ly-5)+'" text-anchor="end" font-size="11" fill="'+l.c+'">'+l.l+'</text>';}).join('');
+  var ref=lines.map(function(l){var ly=Y(l.v);return '<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+ly+'" y2="'+ly+'" stroke="'+l.c+'" stroke-dasharray="5 4"/><text x="'+(W-pr)+'" y="'+(ly-5)+'" text-anchor="end" font-size="11" fill="'+tcol(l.c)+'">'+l.l+'</text>';}).join('');
   var short=function(d){return new Date(d+'T12:00:00').toLocaleDateString('nl-NL',{day:'numeric',month:'short'});};
   var xl='<text x="'+pl+'" y="'+(H-8)+'" font-size="11" fill="var(--mu)">'+short(e[0].date)+'</text>'+
          '<text x="'+(W-pr)+'" y="'+(H-8)+'" text-anchor="end" font-size="11" fill="var(--mu)">'+short(e[e.length-1].date)+'</text>';
   c.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+label+' over tijd">'+g+ref+
-    '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac)" stop-opacity=".4"/><stop offset="1" stop-color="var(--ac)" stop-opacity="0"/></linearGradient></defs><polygon points="'+pts+' '+X(e[e.length-1].date).toFixed(1)+','+(H-pb)+' '+X(e[0].date).toFixed(1)+','+(H-pb)+'" fill="url(#ag)"/><polyline points="'+pts+'" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+dots+xl+'</svg>';
+    '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac)" stop-opacity=".4"/><stop offset="1" stop-color="var(--ac)" stop-opacity="0"/></linearGradient></defs><polygon points="'+pts+' '+X(e[e.length-1].date).toFixed(1)+','+(H-pb)+' '+X(e[0].date).toFixed(1)+','+(H-pb)+'" fill="var(--ac)" fill-opacity=".18"/><polyline points="'+pts+'" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+dots+xl+'</svg>';
 }
 
 function resetForm(){
