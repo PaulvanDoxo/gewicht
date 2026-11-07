@@ -68,75 +68,191 @@ button.del{background:var(--rd);box-shadow:none}
 #bmi p{margin:8px 0}
 #bmi details{margin-top:10px;font-size:14px;color:var(--mu)}
 #bmi summary{cursor:pointer;color:var(--ac);font-weight:600}
+.hero p.sub{font-size:13px;line-height:1.35;margin:10px 0 0;opacity:.92}
+.fld{flex:1 1 140px;min-width:0;display:flex;flex-direction:column;gap:4px}
+.fld input{flex:none;width:100%}
+.fld label{font-size:13px;color:var(--mu);font-weight:600}
+select{width:100%;min-width:0;font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:12px}
+select:focus{outline:0;border-color:var(--ac)}
+.chips{display:flex;gap:8px;margin:0 0 10px}
+button.chip{background:var(--bg);color:var(--tx);border:2px solid var(--bd);box-shadow:none;padding:8px 14px;border-radius:999px;font-size:14px}
+button.chip.on{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-color:transparent}
+.howto{margin-top:12px;font-size:14px;color:var(--mu)}
+.howto summary{cursor:pointer;color:var(--ac);font-weight:600}
+.wz{border-radius:14px;padding:12px;margin-top:12px;border:2px solid var(--bd)}
+.wz b.t{font-size:18px}
+footer.doxo{text-align:center;font-size:10px;color:var(--mu);opacity:.7;margin:20px 0 8px}
+.zdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;vertical-align:middle}
 label.btn{display:inline-block;font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-radius:12px;padding:12px 18px;box-shadow:0 6px 16px color-mix(in srgb,var(--ac) 35%,transparent)}
 .item span{background:color-mix(in srgb,var(--ac) 14%,transparent);padding:6px 12px;border-radius:999px;font-size:14px;font-weight:600}
+
+:root{--m1:#2563eb;--m2:#06b6d4;--w1:#059669;--w2:#14b8a6;--b1:#ea580c;--b2:#f59e0b;--onc:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--m1:#60a5fa;--m2:#22d3ee;--w1:#34d399;--w2:#2dd4bf;--b1:#fb923c;--b2:#fbbf24;--onc:#0f0d1d}}
+:root[data-theme="dark"]{--m1:#60a5fa;--m2:#22d3ee;--w1:#34d399;--w2:#2dd4bf;--b1:#fb923c;--b2:#fbbf24;--onc:#0f0d1d}
+html{scroll-behavior:smooth}
+.s-meten{--ac:var(--m1);--ac2:var(--m2)}
+.s-weten{--ac:var(--w1);--ac2:var(--w2)}
+.s-bewaren{--ac:var(--b1);--ac2:var(--b2)}
+.tabs{position:sticky;top:0;z-index:20;display:flex;gap:6px;padding:8px 0;margin:0 0 8px;background:color-mix(in srgb,var(--bg) 85%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.tabs a{flex:1;text-align:center;padding:9px 4px;border-radius:12px;font-weight:700;font-size:14px;text-decoration:none;color:var(--tx);background:var(--card);border:2px solid color-mix(in srgb,var(--c) 40%,transparent)}
+.tabs a.on{background:var(--c);color:var(--onc);border-color:var(--c)}
+.t-meten{--c:var(--m1)}.t-weten{--c:var(--w1)}.t-bewaren{--c:var(--b1)}
+.sec{border-radius:26px;padding:12px 12px 4px;margin:0 0 14px;background:color-mix(in srgb,var(--ac) 9%,transparent);border:2px solid color-mix(in srgb,var(--ac) 30%,transparent);scroll-margin-top:60px}
+.sh{display:flex;align-items:center;gap:12px;margin:2px 4px 12px}
+.sn{flex:none;width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2));color:var(--onc);font-weight:800;display:grid;place-items:center}
+.sh h2{margin:0;font-size:20px;color:var(--ac)}
+.sh h2::before{display:none}
+.sh small{display:block;color:var(--mu);font-size:13px}
+details.card{padding:0;margin-bottom:10px;overflow:hidden}
+.card>summary{list-style:none;display:flex;align-items:center;gap:8px;padding:14px 16px;cursor:pointer;font-weight:700;font-size:15px;color:var(--tx)}
+.card>summary::-webkit-details-marker{display:none}
+.card>summary::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--ac),var(--ac2))}
+.card>summary::after{content:"";flex:none;width:8px;height:8px;border-right:2px solid var(--mu);border-bottom:2px solid var(--mu);transform:rotate(45deg);margin:-3px 2px 0 auto;transition:transform .15s}
+details[open].card>summary::after{transform:rotate(-135deg);margin-top:3px}
+.card>summary em{font-style:normal;flex:1;text-align:right;color:var(--mu);font-weight:500;font-size:13px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.card .in{padding:0 16px 16px}
+.herod{margin-top:10px}
+.herod summary{list-style:none;cursor:pointer;font-size:13px;opacity:.95}
+.herod summary::-webkit-details-marker{display:none}
+.herod summary::after{content:" ▾"}
+.herod[open] summary::after{content:" ▴"}
+.sec .stats>div:nth-child(1){background:color-mix(in srgb,var(--ac) 14%,transparent)}
+.sec .stats>div:nth-child(1) b{color:var(--ac)}
+.sec .stats>div:nth-child(2){background:color-mix(in srgb,#6366f1 14%,transparent)}
+.sec .stats>div:nth-child(2) b{color:#6366f1}
+.sec .stats>div:nth-child(3){background:color-mix(in srgb,#ec4899 14%,transparent)}
+.sec .stats>div:nth-child(3) b{color:#ec4899}
+.wz{margin-top:0}
 </style>
 </head>
 <body>
 <main>
-<div class="hero"><h1>Mijn gewicht</h1><p>Volg je voortgang en haal je doel 🎯</p></div>
+<div class="hero"><h1>Mijn gewicht</h1><p>Volg je voortgang en haal je doel 🎯</p>
+<details class="herod"><summary>🔒 Privé en niet in de cloud · normen van het Voedingscentrum</summary>
+<p class="sub">Je data staat niet in de cloud, maar privé op je toestel en op de plek die je zelf kiest voor je export. Exporteer daarom regelmatig om je data veilig te houden.</p>
+<p class="sub">Normen en uitleg sluiten zo veel mogelijk aan op de informatie van het Voedingscentrum.</p></details></div>
 
-<div class="card stats" id="stats"></div>
+<nav class="tabs" id="tabs"><a href="#meten" class="t-meten">1 · Meten</a><a href="#weten" class="t-weten">2 · Weten</a><a href="#bewaren" class="t-bewaren">3 · Bewaren</a></nav>
 
-<div class="card">
-<h2 id="formTitle">Nieuwe meting</h2>
+<section class="sec s-meten" id="meten">
+<div class="sh"><span class="sn">1</span><div><h2>Meten</h2><small>Vul in wat je meet</small></div></div>
+
+<details class="card" id="formCard" open>
+<summary id="formTitle">Nieuwe meting</summary>
+<div class="in">
 <div class="row">
-<input id="kg" type="text" inputmode="decimal" placeholder="Gewicht in kg">
-<input id="date" type="date">
+<div class="fld"><label for="kg">Gewicht (kg)</label><input id="kg" type="text" inputmode="decimal" placeholder="bijv. 82,4"></div>
+<div class="fld"><label for="date">Datum</label><input id="date" type="date"></div>
 </div>
 <div class="row" style="margin-top:8px">
+<div class="fld"><label for="waist">Middelomtrek (cm), optioneel</label><input id="waist" type="text" inputmode="decimal" placeholder="bijv. 92"></div>
+</div>
+<div class="row" style="margin-top:10px">
 <button id="saveBtn">Opslaan</button>
 <button id="cancelBtn" class="sec" hidden>Annuleren</button>
 <button id="delBtn" class="del" hidden>Verwijderen</button>
 </div>
 </div>
+</details>
 
-<div class="card">
-<h2>Grafiek</h2>
+<details class="card" id="profCard">
+<summary>Jouw gegevens <em id="profSum"></em></summary>
+<div class="in">
+<p class="bmi-note" style="margin:0 0 10px">Vul eenmalig in. Dit blijft alleen op dit toestel en bepaalt welke normen gelden.</p>
+<div class="row">
+<div class="fld"><label for="height">Lengte (in cm)</label><input id="height" type="text" inputmode="numeric" placeholder="bijv. 178"></div>
+<div class="fld"><label for="sex">Geslacht</label><select id="sex"><option value="">Kies…</option><option value="m">Man</option><option value="v">Vrouw</option></select></div>
+</div>
+<div class="row" style="margin-top:8px">
+<div class="fld"><label for="birth">Geboortedatum</label><input id="birth" type="date"></div>
+<div class="fld"><label for="origin">Achtergrond (voor de normen)</label><select id="origin"></select></div>
+</div>
+<div class="row" style="margin-top:10px"><button id="profileBtn" type="button">Bewaar gegevens</button></div>
+</div>
+</details>
+
+<details class="card">
+<summary>Doelgewicht <em id="goalSum"></em></summary>
+<div class="in">
+<div class="row">
+<div class="fld"><label for="goal">Doelgewicht (kg)</label><input id="goal" type="text" inputmode="decimal" placeholder="bijv. 75"></div>
+<button id="goalBtn" style="align-self:flex-end">Instellen</button>
+</div>
+</div>
+</details>
+
+<details class="card">
+<summary>Hoe meet ik mijn middelomtrek?</summary>
+<div class="in"><p class="bmi-note" style="margin:0">Sta rechtop en meet op de blote huid, tussen de onderkant van je onderste rib en de bovenkant van je bekken. Houd het meetlint niet te strak, adem uit en lees de omtrek af. Zonder meetlint kun je een touwtje gebruiken en dat daarna naast een meetlat leggen.</p></div>
+</details>
+</section>
+
+<section class="sec s-weten" id="weten">
+<div class="sh"><span class="sn">2</span><div><h2>Weten</h2><small>Dit zegt je data</small></div></div>
+
+<div class="card stats" id="stats"></div>
+
+<details class="card" open>
+<summary>Grafiek</summary>
+<div class="in">
+<div class="chips"><button id="chW" class="chip on" type="button">Gewicht</button><button id="chB" class="chip" type="button">BMI</button><button id="chM" class="chip" type="button">Middelomtrek</button></div>
 <div class="chart" id="chart"></div>
 </div>
+</details>
 
-<div class="card">
-<h2>Doelgewicht</h2>
-<div class="row">
-<input id="goal" type="text" inputmode="decimal" placeholder="Doel in kg">
-<button id="goalBtn">Instellen</button>
-</div>
-</div>
+<details class="card">
+<summary>BMI <em id="bmiSum"></em></summary>
+<div class="in"><div id="bmi"></div></div>
+</details>
 
-<div class="card">
-<h2>BMI</h2>
-<div class="row">
-<input id="height" type="text" inputmode="numeric" placeholder="Lengte in cm">
-<button id="heightBtn">Instellen</button>
-</div>
-<div id="bmi"></div>
-</div>
+<details class="card">
+<summary>Middelomtrek <em id="waistSum"></em></summary>
+<div class="in"><div id="waistBox"></div></div>
+</details>
 
-<div class="card">
-<h2>Metingen</h2>
-<div id="list"></div>
-</div>
+<details class="card">
+<summary>Bron en beperkingen</summary>
+<div class="in"><p class="bmi-note" style="margin:0">Bron voor de normen: Voedingscentrum. Dit is geen medisch advies. Twijfel je, ga dan naar je huisarts of een diëtist.</p></div>
+</details>
+</section>
 
-<div class="card">
-<h2>Exporteren</h2>
+<section class="sec s-bewaren" id="bewaren">
+<div class="sh"><span class="sn">3</span><div><h2>Bewaren</h2><small>Houd je data veilig</small></div></div>
+
+<details class="card" open>
+<summary>Exporteren</summary>
+<div class="in">
 <div class="row"><button id="exportBtn" class="sec">Exporteer als CSV</button></div>
+<label style="display:flex;gap:10px;align-items:center;margin-top:12px;cursor:pointer"><input id="autoExport" type="checkbox" style="flex:none;width:22px;height:22px;padding:0;accent-color:var(--ac)"><span>Exporteer automatisch na elke opgeslagen meting</span></label>
 <p id="exportMsg" style="color:var(--mu);font-size:14px;margin:8px 0 0"></p>
 </div>
+</details>
 
-<div class="card">
-<h2>Importeren</h2>
+<details class="card">
+<summary>Importeren</summary>
+<div class="in">
 <div class="row" id="dropZone">
 <label class="btn" for="importFile">Kies CSV-bestand</label>
 <button id="pasteBtn" class="sec">Plak gegevens</button>
 </div>
 <input id="importFile" type="file" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden">
 <div id="pasteBox" hidden style="margin-top:8px">
-<textarea id="pasteText" rows="6" placeholder="datum;gewicht_kg&#10;2026-10-01;82,4&#10;2026-10-08;81,9" style="width:100%;font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:10px"></textarea>
+<textarea id="pasteText" rows="6" placeholder="datum;gewicht_kg;middelomtrek_cm&#10;2026-10-01;82,4;92&#10;2026-10-08;81,9;91" style="width:100%;font:inherit;color:var(--tx);background:var(--bg);border:2px solid var(--bd);border-radius:12px;padding:10px"></textarea>
 <div class="row" style="margin-top:8px"><button id="pasteGo">Verwerk</button></div>
 </div>
-<p id="importMsg" style="color:var(--mu);font-size:14px;margin:8px 0 0">Ondersteunt datum;gewicht met komma of punt, en datums als 2026-10-31 of 31-10-2026. Bestaande metingen op dezelfde datum worden bijgewerkt.</p>
+<p id="importMsg" style="color:var(--mu);font-size:14px;margin:8px 0 0"></p>
+<details class="howto"><summary>Welke bestanden kan ik importeren?</summary>
+<p>Ondersteunt datum;gewicht;middelomtrek met komma of punt, en datums als 2026-10-31 of 31-10-2026. Een bestand met alleen datum en gewicht kan ook. Bestaande metingen op dezelfde datum worden bijgewerkt. Je lengte, geslacht, geboortedatum en achtergrond zitten niet in het bestand.</p></details>
 </div>
+</details>
+
+<details class="card">
+<summary>Alle metingen <em id="listSum"></em></summary>
+<div class="in"><div id="list"></div></div>
+</details>
+</section>
+
+<footer class="doxo">Dit is een Doxo-product</footer>
 </main>
 
 <script>
@@ -147,12 +263,19 @@ function save(){try{localStorage.setItem('gewicht-app',JSON.stringify(data));}ca
 function $(id){return document.getElementById(id);}
 function fmt(n){return n.toFixed(1).replace('.',',');}
 function num(v){var n=parseFloat(String(v).replace(',','.'));return isFinite(n)&&n>0&&n<500?n:null;}
+function numW(v){var n=parseFloat(String(v).replace(',','.'));return isFinite(n)&&n>=40&&n<=250?n:null;}
 function today(){var d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
 function nice(d){return new Date(d+'T12:00:00').toLocaleDateString('nl-NL',{day:'numeric',month:'short',year:'numeric'});}
 function sorted(){return data.entries.slice().sort(function(a,b){return a.date<b.date?-1:a.date>b.date?1:0;});}
 
+function sum(id,html){var el=$(id);if(el)el.innerHTML=html;}
+var ZN={gezond:'gezond',verhoogd:'verhoogd',hoog:'te hoog'};
 function render(){
   var e=sorted();
+  sum('goalSum',data.goal?fmt(data.goal)+' kg':'niet ingesteld');
+  var ps=[];if(data.height)ps.push(data.height+' cm');if(data.sex)ps.push(data.sex==='m'?'man':'vrouw');
+  sum('profSum',ps.length?ps.join(' · '):'nog invullen');
+  sum('listSum',e.length?String(e.length):'');
   // stats
   var st=$('stats');
   if(!e.length){st.innerHTML='<div><b>–</b><span>Huidig</span></div><div><b>–</b><span>Verschil</span></div><div><b>'+(data.goal?fmt(data.goal):'–')+'</b><span>Doel</span></div>';}
@@ -167,52 +290,138 @@ function render(){
   var l=$('list');
   if(!e.length)l.innerHTML='<div class="empty">Nog geen metingen</div>';
   else l.innerHTML=e.slice().reverse().map(function(x){
-    return '<div class="item" data-id="'+x.id+'"><div><b>'+fmt(x.kg)+' kg</b><small>'+nice(x.date)+'</small></div><span style="color:var(--ac)">Wijzig</span></div>';
+    var wz=x.waist!=null?waistZone(x.waist):null,an=ageNote(age());
+    var wtxt=x.waist!=null?' · middelomtrek '+(wz&&!an?'<i class="zdot" style="background:'+wz.c+'"></i>':'')+fmt(x.waist)+' cm':'';
+    return '<div class="item" data-id="'+x.id+'"><div><b>'+fmt(x.kg)+' kg</b><small>'+nice(x.date)+wtxt+'</small></div><span style="color:var(--ac)">Wijzig</span></div>';
   }).join('');
   Array.prototype.forEach.call(l.querySelectorAll('.item'),function(el){
     el.onclick=function(){startEdit(el.getAttribute('data-id'));};
   });
   drawChart(e);
   drawBmi(e);
+  drawWaist(e);
 }
 
+var ORIGINS={
+  eu:{n:'Europees, Amerikaans, Midden-Oosters of Mediterraan',m:[94,102],v:[80,88]},
+  lat:{n:'Latijns- of Zuid-Amerikaans',m:[88,94],v:[83,90]},
+  ssa:{n:'Sub-Sahara Afrikaans',m:[94,null],v:[80,null]},
+  afam:{n:'Afrikaans-Amerikaans',m:[80,95],v:[90,99]},
+  afr:{n:'Afrikaans',m:[76.5,80.5],v:[71.5,81.5]},
+  azi:{n:'Aziatisch (ook uit Suriname of het Caribisch gebied)',m:[85,null],v:[80,null],asian:true},
+  chi:{n:'Chinees',m:[83,null],v:[81,null],asian:true},
+  kor:{n:'Koreaans',m:[80,90],v:[75,85],asian:true}
+};
+function origin(){return ORIGINS[data.origin]||ORIGINS.eu;}
+function age(){
+  if(!data.birth)return null;
+  var b=new Date(data.birth+'T12:00:00'),n=new Date();
+  var a=n.getFullYear()-b.getFullYear();
+  if(n.getMonth()<b.getMonth()||(n.getMonth()===b.getMonth()&&n.getDate()<b.getDate()))a--;
+  return a;
+}
+function ageNote(a){
+  if(a===null)return null;
+  if(a<19)return 'Voor kinderen en tieners gelden andere grenzen dan voor volwassenen. Het Voedingscentrum heeft hiervoor een eigen BMI-meter.';
+  if(a>=70)return 'Voor mensen van 70 jaar en ouder gelden andere grenzen. Het Voedingscentrum noemt die niet, daarom geeft deze app hier geen beoordeling. Bij twijfel kun je een huisarts of diëtist raadplegen.';
+  return null;
+}
 function bmiInfo(b){
-  if(b<18.5)return {n:'Ondergewicht',c:'#3b82f6',t:'Je gewicht is laag ten opzichte van je lengte. Dat hoeft geen probleem te zijn, maar bij ongewild gewichtsverlies, weinig energie of klachten is overleg met je huisarts verstandig.'};
-  if(b<25)return {n:'Gezond gewicht',c:'#14b8a6',t:'Je gewicht past bij je lengte en de kans op gezondheidsproblemen door gewicht is over het algemeen het kleinst.'};
-  if(b<30)return {n:'Overgewicht',c:'#f59e0b',t:'Je gewicht is wat hoger dan wat bij je lengte past. Het risico op onder meer hart- en vaatziekten en diabetes neemt dan wat toe, zeker als er veel buikvet is.'};
-  return {n:'Obesitas',c:'#ef4444',t:'Je gewicht is duidelijk hoger dan wat bij je lengte past. Het gezondheidsrisico is verhoogd. Een gesprek met je huisarts over wat bij jou past is verstandig.'};
+  var risk='Een gezonder gewicht verkleint de kans op onder meer diabetes type 2, hoge bloeddruk, hart- en vaatziekten, galstenen, rug- en gewrichtsklachten en bepaalde soorten kanker.';
+  if(b<18.5)return {n:'Ondergewicht',c:'#3b82f6',t:'Je BMI is lager dan 18,5. Heb je klachten, of is je gewicht ongewild gedaald, overleg dan met je huisarts of een diëtist.'};
+  if(b<25)return {n:'Gezond gewicht',c:'#14b8a6',t:'Je BMI valt in het gebied van 18,5 tot 25. Dat is een gezond gewicht voor je lengte.'};
+  if(b<30)return {n:'Overgewicht',c:'#f59e0b',t:risk};
+  return {n:'Ernstig overgewicht',c:'#ef4444',t:risk+' Overleg met je huisarts of een diëtist wat bij jou past.'};
+}
+function waistZone(w){
+  if(!data.sex)return null;
+  var t=origin()[data.sex],lo=t[0],hi=t[1];
+  if(hi!==null&&w>=hi)return {k:'hoog',n:'Te hoog, verhoogd risico',c:'#ef4444',t:'Val onder begeleiding verantwoord af. Vraag een arts of diëtist om advies.'};
+  if(w>=lo)return {k:'verhoogd',n:'Verhoogd, risicogebied',c:'#f59e0b',t:'Let op en check je BMI.'+(hi===null?' Voor jouw achtergrond is de grens voor "te hoog" niet bekend.':'')};
+  return {k:'gezond',n:'Gezond, geen verhoogd risico',c:'#14b8a6',t:'Houd je middelomtrek zo.'};
 }
 function drawBmi(e){
   var box=$('bmi');
-  if(!data.height){box.innerHTML='<p class="bmi-note">Vul je lengte in om je BMI te zien.</p>';return;}
-  if(!e.length){box.innerHTML='<p class="bmi-note">Voeg een meting toe om je BMI te berekenen.</p>';return;}
-  var kg=e[e.length-1].kg,m=data.height/100,b=kg/(m*m),i=bmiInfo(b);
-  var lo=18.5*m*m,hi=24.9*m*m;
-  var pos=Math.max(0,Math.min(100,(b-15)/(40-15)*100));
-  var bar='<div class="bmi-bar"><i style="left:'+pos.toFixed(1)+'%"></i></div>'+
-    '<div class="bmi-scale"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>';
-  var tip='';
-  if(b<18.5||b>=25){
-    var diff=b<18.5?lo-kg:kg-hi;
-    tip='<p class="bmi-note">Bij jouw lengte ligt een BMI tussen 18,5 en 25 bij ongeveer <b>'+fmt(lo)+' tot '+fmt(hi)+' kg</b>. Je zit daar ongeveer '+fmt(diff)+' kg '+(b<18.5?'onder':'boven')+'.</p>';
-  }else{
-    tip='<p class="bmi-note">Bij jouw lengte ligt een BMI tussen 18,5 en 25 bij ongeveer <b>'+fmt(lo)+' tot '+fmt(hi)+' kg</b>.</p>';
+  if(!data.height){sum('bmiSum','lengte invullen');box.innerHTML='<p class="bmi-note" style="margin:0">Vul je lengte in (in cm) bij Meten om je BMI te zien.</p>';return;}
+  if(!e.length){sum('bmiSum','nog geen meting');box.innerHTML='<p class="bmi-note" style="margin:0">Voeg een meting toe om je BMI te berekenen.</p>';return;}
+  var kg=e[e.length-1].kg,m=data.height/100,b=kg/(m*m),a=age(),an=ageNote(a);
+  var lo=18.5*m*m,hi=25*m*m,bs=b.toFixed(1).replace('.',',');
+  sum('bmiSum',an?bs:'<i class="zdot" style="background:'+bmiInfo(b).c+'"></i>'+bs+' · '+bmiInfo(b).n.toLowerCase());
+  var head='<div class="bmi-top"><div class="bmi-val"'+(an?'':' style="color:'+bmiInfo(b).c+'"')+'>'+bs+'</div>'+
+    '<div>'+(an?'<b>BMI</b>':'<b style="color:'+bmiInfo(b).c+'">'+bmiInfo(b).n+'</b>')+'<small>op basis van '+fmt(kg)+' kg en '+data.height+' cm</small></div></div>';
+  var body='';
+  if(an){body='<p>'+an+'</p>';}
+  else{
+    var i=bmiInfo(b);
+    var pos=Math.max(0,Math.min(100,(b-15)/(40-15)*100));
+    body='<div class="bmi-bar"><i style="left:'+pos.toFixed(1)+'%"></i></div>'+
+      '<div class="bmi-scale"><span>15</span><span>18,5</span><span>25</span><span>30</span><span>40</span></div>'+
+      '<p>'+i.t+'</p>';
+    if(a===null)body+='<p class="bmi-note">Vul je geboortedatum in. Deze indeling geldt voor volwassenen van 19 tot 69 jaar.</p>';
+    if(origin().asian)body+='<p class="bmi-note">Bij een Aziatische achtergrond gelden andere BMI-grenzen. Het Voedingscentrum geeft die niet, dus zie deze indeling als indicatie.</p>';
+    var d=b<18.5?lo-kg:(b>=25?kg-hi:0);
+    body+='<p class="bmi-note">Bij jouw lengte hoort een BMI van 18,5 tot 25 bij ongeveer <b>'+fmt(lo)+' tot '+fmt(hi)+' kg</b>.'+(d>0?' Je zit daar ongeveer '+fmt(d)+' kg '+(b<18.5?'onder':'boven')+'.':'')+'</p>';
   }
-  box.innerHTML='<div class="bmi-top"><div class="bmi-val" style="color:'+i.c+'">'+b.toFixed(1).replace('.',',')+'</div>'+
-    '<div><b style="color:'+i.c+'">'+i.n+'</b><small>op basis van '+fmt(kg)+' kg en '+data.height+' cm</small></div></div>'+
-    bar+'<p>'+i.t+'</p>'+tip+
-    '<details><summary>Wat betekent dit getal?</summary>'+
-    '<p>De BMI (Body Mass Index) is je gewicht in kilo\'s gedeeld door je lengte in meters, tweemaal vermenigvuldigd. Voor jou: '+fmt(kg)+' ÷ ('+String(m).replace('.',',')+' × '+String(m).replace('.',',')+') = '+b.toFixed(1).replace('.',',')+'.</p>'+
-    '<p>Grenzen voor volwassenen (WHO): onder 18,5 ondergewicht, 18,5 tot 25 gezond gewicht, 25 tot 30 overgewicht, vanaf 30 obesitas.</p>'+
-    '<p><b>Beperkingen:</b> de BMI maakt geen onderscheid tussen spieren, vet en bot. Een gespierd persoon kan een hoge BMI hebben zonder te veel vet. Ook zegt hij niets over waar het vet zit (buikvet is risicovoller). Voor kinderen, tieners, zwangere vrouwen en ouderen gelden andere grenzen. Zie het als een grove indicatie, geen diagnose.</p></details>';
+  body+='<details><summary>Wat betekent dit getal?</summary>'+
+    '<p>De BMI (Body Mass Index) is je gewicht in kilo\'s gedeeld door je lengte in meters, tweemaal vermenigvuldigd. Voor jou: '+fmt(kg)+' ÷ ('+String(m).replace('.',',')+' × '+String(m).replace('.',',')+') = '+bs+'.</p>'+
+    '<p>Het Voedingscentrum noemt een BMI van 18,5 tot 25 een gezond gewicht en een BMI van 30 of hoger ernstig overgewicht. De grenzen voor ondergewicht (onder 18,5) en overgewicht (25 tot 30) zijn gangbare grenzen. Het Voedingscentrum noemt deze categorieën, maar geeft er geen getallen bij.</p>'+
+    '<p><b>Beperkingen:</b> de BMI zegt niets over hoe mooi een lichaam is en is minder geschikt bij veel spiermassa, zwangerschap, borstvoeding, heel lange of heel kleine personen en een Aziatische achtergrond. Voor 70-plussers, kinderen en tieners gelden andere grenzen.</p></details>';
+  box.innerHTML=head+body;
+}
+function drawWaist(e){
+  var box=$('waistBox');
+  var w=e.filter(function(x){return x.waist!=null;});
+  if(!w.length){sum('waistSum','nog niet ingevuld');box.innerHTML='<p class="bmi-note" style="margin:0">Nog geen middelomtrek ingevoerd. Je kunt die bij een nieuwe meting invullen (optioneel).</p>';return;}
+  var last=w[w.length-1],z=waistZone(last.waist),a=age(),an=ageNote(a);
+  sum('waistSum',(z&&!an?'<i class="zdot" style="background:'+z.c+'"></i>':'')+fmt(last.waist)+' cm'+(z&&!an?' · '+ZN[z.k]:''));
+  var ch=w.length>1?(last.waist-w[0].waist):null;
+  var html='<div class="wz" style="border-color:'+(z&&!an?z.c:'var(--bd)')+'"><b class="t">Middelomtrek: '+fmt(last.waist)+' cm</b>';
+  if(an)html+='<p class="bmi-note">'+an+'</p>';
+  else if(!data.sex)html+='<p class="bmi-note">Kies man of vrouw en bewaar je gegevens om je middelomtrek te beoordelen.</p>';
+  else{
+    html+='<p style="margin:6px 0 0"><b style="color:'+z.c+'">'+z.n+'</b><br>'+z.t+'</p>';
+    if(a===null)html+='<p class="bmi-note">Vul je geboortedatum in. Deze grenzen gelden voor volwassenen van 19 tot 69 jaar.</p>';
+    var t=origin()[data.sex];
+    html+='<p class="bmi-note">Grenzen voor jouw gegevens: verhoogd vanaf '+fmt(t[0])+' cm'+(t[1]!==null?', te hoog vanaf '+fmt(t[1])+' cm':', "te hoog" is onbekend voor jouw achtergrond')+'.</p>';
+    if(data.height&&e.length&&!an&&a!==null){
+      var m=data.height/100,b=e[e.length-1].kg/(m*m),adv=null;
+      if(b>=18.5&&b<25&&z.k!=='gezond')adv='Gezond gewicht, maar een hoge middelomtrek: zorg dat je gewicht gelijk blijft en je middelomtrek niet toeneemt, door gezond te eten en voldoende te bewegen.';
+      else if(b>=30&&z.k!=='hoog')adv='Een BMI van 30 of hoger, maar een gezonde of verhoogde middelomtrek: meet je middelomtrek opnieuw, eventueel met hulp.';
+      else if(b>=25&&b<30&&z.k==='gezond')adv='Overgewicht volgens de BMI met een gezonde middelomtrek: bij fanatieke krachtsporters kan dat samengaan met weinig vetmassa. Dan hoef je niet af te vallen. Een diëtist kan vet- en spiermassa laten bepalen.';
+      if(adv)html+='<p class="bmi-note">'+adv+'</p>';
+    }
+  }
+  if(ch!==null)html+='<p class="bmi-note">Sinds je eerste meting van '+fmt(w[0].waist)+' cm: '+(ch>0?'+':'')+fmt(ch)+' cm.</p>';
+  html+='<p class="bmi-note">Buikvet is een belangrijke risicofactor voor diabetes type 2 en hart- en vaatziekten.</p></div>';
+  box.innerHTML=html;
 }
 
-function drawChart(e){
-  var c=$('chart');
-  if(e.length<2){c.innerHTML='<div class="empty">Voeg minstens twee metingen toe voor een grafiek</div>';return;}
+var chartMode='kg';
+function drawChart(all){
+  var c=$('chart'),F=chartMode,label='Gewicht',lines=[],e;
+  $('chW').classList.toggle('on',F==='kg');$('chB').classList.toggle('on',F==='bmi');$('chM').classList.toggle('on',F==='waist');
+  if(F==='bmi'){
+    label='BMI';
+    if(!data.height){c.innerHTML='<div class="empty">Vul je lengte in (bij Meten) om het verloop van je BMI te zien</div>';return;}
+    var mm=data.height/100;
+    e=all.map(function(x){return {date:x.date,kg:x.kg/(mm*mm)};});
+    lines=[{v:18.5,l:'18,5',c:'#14b8a6'},{v:25,l:'25',c:'#f59e0b'},{v:30,l:'30',c:'#ef4444'}];
+  }else if(F==='waist'){
+    label='Middelomtrek';
+    e=all.filter(function(x){return x.waist!=null;}).map(function(x){return {date:x.date,kg:x.waist};});
+    if(data.sex&&!ageNote(age())){
+      var t=origin()[data.sex];
+      lines.push({v:t[0],l:'Verhoogd '+fmt(t[0]),c:'#f59e0b'});
+      if(t[1]!==null)lines.push({v:t[1],l:'Te hoog '+fmt(t[1]),c:'#ef4444'});
+    }
+  }else{
+    e=all.map(function(x){return {date:x.date,kg:x.kg};});
+    if(data.goal)lines.push({v:data.goal,l:'Doel '+fmt(data.goal),c:'var(--rd)'});
+  }
+  if(e.length<2){c.innerHTML='<div class="empty">'+(F==='waist'?'Voer minstens twee metingen met middelomtrek in voor een grafiek':'Voeg minstens twee metingen toe voor een grafiek')+'</div>';return;}
   var W=340,H=210,pl=40,pr=12,pt=12,pb=28;
   var vals=e.map(function(x){return x.kg;});
-  if(data.goal)vals.push(data.goal);
+  lines.forEach(function(l){vals.push(l.v);});
   var mn=Math.min.apply(null,vals),mx=Math.max.apply(null,vals);
   var pad=Math.max((mx-mn)*0.15,0.5);mn-=pad;mx+=pad;
   var t0=new Date(e[0].date).getTime(),t1=new Date(e[e.length-1].date).getTime();
@@ -227,37 +436,39 @@ function drawChart(e){
   }
   var pts=e.map(function(x){return X(x.date).toFixed(1)+','+Y(x.kg).toFixed(1);}).join(' ');
   var dots=e.map(function(x){return '<circle cx="'+X(x.date).toFixed(1)+'" cy="'+Y(x.kg).toFixed(1)+'" r="4.5" fill="var(--card)" stroke="var(--ac)" stroke-width="2.5"/>';}).join('');
-  var goal='';
-  if(data.goal){var gy=Y(data.goal);goal='<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+gy+'" y2="'+gy+'" stroke="var(--rd)" stroke-dasharray="5 4"/><text x="'+(W-pr)+'" y="'+(gy-5)+'" text-anchor="end" font-size="11" fill="var(--rd)">Doel '+fmt(data.goal)+'</text>';}
+  var ref=lines.map(function(l){var ly=Y(l.v);return '<line x1="'+pl+'" x2="'+(W-pr)+'" y1="'+ly+'" y2="'+ly+'" stroke="'+l.c+'" stroke-dasharray="5 4"/><text x="'+(W-pr)+'" y="'+(ly-5)+'" text-anchor="end" font-size="11" fill="'+l.c+'">'+l.l+'</text>';}).join('');
   var short=function(d){return new Date(d+'T12:00:00').toLocaleDateString('nl-NL',{day:'numeric',month:'short'});};
   var xl='<text x="'+pl+'" y="'+(H-8)+'" font-size="11" fill="var(--mu)">'+short(e[0].date)+'</text>'+
          '<text x="'+(W-pr)+'" y="'+(H-8)+'" text-anchor="end" font-size="11" fill="var(--mu)">'+short(e[e.length-1].date)+'</text>';
-  c.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gewicht over tijd">'+g+goal+
+  c.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+label+' over tijd">'+g+ref+
     '<defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--ac)" stop-opacity=".4"/><stop offset="1" stop-color="var(--ac)" stop-opacity="0"/></linearGradient></defs><polygon points="'+pts+' '+X(e[e.length-1].date).toFixed(1)+','+(H-pb)+' '+X(e[0].date).toFixed(1)+','+(H-pb)+'" fill="url(#ag)"/><polyline points="'+pts+'" fill="none" stroke="var(--ac)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+dots+xl+'</svg>';
 }
 
 function resetForm(){
-  editId=null;$('kg').value='';$('date').value=today();
+  editId=null;$('kg').value='';$('waist').value='';$('date').value=today();
   $('formTitle').textContent='Nieuwe meting';
   $('cancelBtn').hidden=true;$('delBtn').hidden=true;$('saveBtn').textContent='Opslaan';
 }
 function startEdit(id){
   var x=data.entries.filter(function(e){return String(e.id)===String(id);})[0];
   if(!x)return;
-  editId=x.id;$('kg').value=String(x.kg).replace('.',',');$('date').value=x.date;
+  editId=x.id;$('kg').value=String(x.kg).replace('.',',');$('waist').value=x.waist!=null?String(x.waist).replace('.',','):'';$('date').value=x.date;
   $('formTitle').textContent='Meting aanpassen';
   $('cancelBtn').hidden=false;$('delBtn').hidden=false;$('saveBtn').textContent='Bewaar wijziging';
-  window.scrollTo({top:0,behavior:'smooth'});
+  var fc=$('formCard');fc.open=true;fc.scrollIntoView({behavior:'smooth',block:'start'});
 }
 $('saveBtn').onclick=function(){
   var kg=num($('kg').value),d=$('date').value;
   if(kg===null||!d){alert('Vul een geldig gewicht en een datum in.');return;}
+  var wv=$('waist').value.trim(),w=null;
+  if(wv!==''){w=numW(wv);if(w===null){alert('Vul je middelomtrek in centimeters in, tussen 40 en 250. Of laat het veld leeg.');return;}}
   if(editId!==null){
-    data.entries.forEach(function(x){if(x.id===editId){x.kg=kg;x.date=d;}});
+    data.entries.forEach(function(x){if(x.id===editId){x.kg=kg;x.date=d;if(w!==null)x.waist=w;else delete x.waist;}});
   }else{
-    data.entries.push({id:Date.now(),kg:kg,date:d});
+    var n={id:Date.now(),kg:kg,date:d};if(w!==null)n.waist=w;data.entries.push(n);
   }
   save();resetForm();render();
+  if(data.autoExport)doExport(true);
 };
 $('cancelBtn').onclick=resetForm;
 $('delBtn').onclick=function(){
@@ -272,21 +483,34 @@ $('goalBtn').onclick=function(){
   else{var n=num(v);if(n===null){alert('Vul een geldig doelgewicht in.');return;}data.goal=n;}
   save();render();
 };
-$('heightBtn').onclick=function(){
-  var v=$('height').value.trim();
-  if(v===''){data.height=null;}
-  else{
+$('profileBtn').onclick=function(){
+  var v=$('height').value.trim(),h=null;
+  if(v!==''){
     var n=parseFloat(v.replace(',','.'));
     if(!isFinite(n)||n<100||n>250){alert('Vul je lengte in centimeters in, tussen 100 en 250.');return;}
-    data.height=Math.round(n);
+    h=Math.round(n);
   }
+  var bd=$('birth').value;
+  if(bd){
+    var t=new Date(bd+'T12:00:00'),now=new Date();
+    if(isNaN(t.getTime())||t>now||now.getFullYear()-t.getFullYear()>120){alert('Vul een geldige geboortedatum in.');return;}
+  }
+  data.height=h;data.sex=$('sex').value||null;data.birth=bd||null;data.origin=$('origin').value||'eu';
   save();render();
 };
-function csv(){return 'datum;gewicht_kg\n'+sorted().map(function(x){return x.date+';'+String(x.kg).replace('.',',');}).join('\n')+'\n';}
-$('exportBtn').onclick=async function(){
+$('chW').onclick=function(){chartMode='kg';render();};
+$('chM').onclick=function(){chartMode='waist';render();};
+$('chB').onclick=function(){chartMode='bmi';render();};
+function csv(){return 'datum;gewicht_kg;middelomtrek_cm\n'+sorted().map(function(x){return x.date+';'+String(x.kg).replace('.',',')+';'+(x.waist!=null?String(x.waist).replace('.',','):'');}).join('\n')+'\n';}
+$('exportBtn').onclick=function(){doExport(false);};
+$('autoExport').onchange=function(){
+  data.autoExport=this.checked;save();
+  $('exportMsg').textContent=this.checked?'Na elke opgeslagen meting verschijnt voortaan het deelmenu om het CSV-bestand te bewaren.':'Automatisch exporteren staat uit.';
+};
+async function doExport(auto){
   var msg=$('exportMsg');msg.textContent='';
   if(!data.entries.length){msg.textContent='Er zijn nog geen metingen om te exporteren.';return;}
-  var name='gewicht-'+today()+'.csv',text=csv();
+  var name=auto?'gewicht.csv':'gewicht-'+today()+'.csv',text=csv();
   if(window.claude&&claude.use){
     try{
       var dl=await claude.use('downloads');
@@ -312,7 +536,7 @@ $('exportBtn').onclick=async function(){
   }catch(e){}
   try{await navigator.clipboard.writeText(text);msg.textContent='Downloaden kan hier niet. De gegevens zijn naar het klembord gekopieerd.';}
   catch(e){msg.textContent='Exporteren lukt hier niet.';}
-};
+}
 function parseDate(s){
   s=s.trim().replace(/^"|"$/g,'');
   var m=s.match(/^(\d{4})[-\/.](\d{1,2})[-\/.](\d{1,2})/);
@@ -348,9 +572,11 @@ function importText(text){
       if(!/datum|date/i.test(parts[0]))skipped++;
       return;
     }
+    var w=null;
+    if(parts.length>2&&parts[2].trim()!==''){w=numW(parts[2].trim().replace(/^"|"$/g,'').replace(/\s*cm$/i,''));}
     var ex=data.entries.filter(function(x){return x.date===d;})[0];
-    if(ex){ex.kg=kg;updated++;}
-    else{data.entries.push({id:Date.now()+added+updated+Math.floor(Math.random()*1000),kg:kg,date:d});added++;}
+    if(ex){ex.kg=kg;if(w!==null)ex.waist=w;updated++;}
+    else{var ne={id:Date.now()+added+updated+Math.floor(Math.random()*1000),kg:kg,date:d};if(w!==null)ne.waist=w;data.entries.push(ne);added++;}
   });
   if(!added&&!updated){msg.textContent='Geen geldige metingen gevonden.'+(skipped?' ('+skipped+' regels overgeslagen)':'');return false;}
   save();render();
@@ -384,9 +610,32 @@ $('pasteBtn').onclick=function(){$('pasteBox').hidden=!$('pasteBox').hidden;};
 $('pasteGo').onclick=function(){
   if(importText($('pasteText').value)){$('pasteText').value='';$('pasteBox').hidden=true;}
 };
-if(data.height)$('height').value=String(data.height);
+$('autoExport').checked=!!data.autoExport;
+(function(){
+  var o=$('origin');
+  Object.keys(ORIGINS).forEach(function(k){var op=document.createElement('option');op.value=k;op.textContent=ORIGINS[k].n;o.appendChild(op);});
+  if(data.height)$('height').value=String(data.height);
+  $('sex').value=data.sex||'';
+  $('birth').value=data.birth||'';
+  o.value=data.origin||'eu';
+})();
 if(data.goal)$('goal').value=String(data.goal).replace('.',',');
+$('profCard').open=!(data.height&&data.sex&&data.birth);
 resetForm();render();
+(function(){
+  var ids=['meten','weten','bewaren'],links=document.querySelectorAll('#tabs a');
+  function mark(id){Array.prototype.forEach.call(links,function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id);});}
+  function upd(){
+    var cur=ids[0];
+    ids.forEach(function(id){var el=$(id);if(el&&el.getBoundingClientRect().top<=window.innerHeight*0.4)cur=id;});
+    if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-4)cur=ids[ids.length-1];
+    mark(cur);
+  }
+  window.addEventListener('scroll',upd,{passive:true});
+  window.addEventListener('resize',upd);
+  Array.prototype.forEach.call(links,function(a){a.addEventListener('click',function(){mark(a.getAttribute('href').slice(1));});});
+  upd();
+})();
 </script>
 </body>
 </html>
